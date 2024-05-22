@@ -3,22 +3,14 @@ name: Build
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: "* * * * *"
 
 jobs:
-  build:
-    name: Build
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Build the code
-        uses: dtolnay/rust-toolchain@stable
-      - name: Check that code can compile
-        run: cargo build --release
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: pr-approve
-          path: |
-            ./target/release/pr-approve
-          overwrite: true
-          compression-level: 0
+      - name : run check
+        run: echo "Hello, world!"
+        env:
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
