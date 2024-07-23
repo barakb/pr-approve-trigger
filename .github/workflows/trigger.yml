@@ -1,4 +1,4 @@
-name: Build
+name: Trigger
 
 
 on:
@@ -8,7 +8,7 @@ on:
     - cron: "*/5 * * * *"
 
 jobs:
-  check:
+  trigger:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
