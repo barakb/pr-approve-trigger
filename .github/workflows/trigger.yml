@@ -4,8 +4,6 @@ name: Trigger
 on:
   push:
     branches: [ master ]
-  schedule:
-    - cron: "*/5 * * * *"
 
 jobs:
   trigger:
